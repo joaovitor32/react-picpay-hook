@@ -24,7 +24,7 @@ export default class PaymentRequest {
 
         this.referenceId = referenceId;
         this.callbackUrl = callbackUrl,
-            this.returnUrl = returnUrl;
+        this.returnUrl = returnUrl;
         this.value = value;
         this.expiresAt = expiresAt;
 

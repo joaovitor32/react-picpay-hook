@@ -1,8 +1,9 @@
-import { useState, useCallback, useRef, useEffect,RefObject } from 'react';
+import { useState, useCallback } from 'react';
 
 import Api, { ApiType } from '../services/api';
 
-export const useHttpClient = ({ xPicpayToken, xSellerToken, baseUrl }: ApiType) => {
+
+const useHttpClient = ({ xPicpayToken, xSellerToken, baseUrl }: ApiType) => {
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -25,3 +26,5 @@ export const useHttpClient = ({ xPicpayToken, xSellerToken, baseUrl }: ApiType) 
 
 
 }
+
+export default useHttpClient;

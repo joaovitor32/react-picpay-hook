@@ -1,8 +1,8 @@
 export interface IStatusResponse {
     
-    authorizationId:string;
-    referenceId:string;
-    status:string;
+    authorizationId?:string;
+    referenceId?:string;
+    status?:string;
     message?:string;
     errors?:any[];
 
@@ -10,9 +10,9 @@ export interface IStatusResponse {
 
 export default class StatusResponse {
     
-    authorizationId:string;
-    referenceId:string;
-    status:string;
+    authorizationId?:string;
+    referenceId?:string;
+    status?:string;
     message?:string;
     errors?:any[];
 

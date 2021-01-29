@@ -16,6 +16,12 @@ class Api{
 
     public xSellerToken:string;
 
+    /**
+    * 
+    * @param {baseUrl} = https://appws.picpay.com/ecommerce/public/
+    *
+    **/
+
     public baseUrl:string
 
     constructor({xPicpayToken,xSellerToken,baseUrl}:ApiType){
@@ -39,9 +45,7 @@ class Api{
     }
 
     public getAxiosService():AxiosInstance{
-
         return this.axiosService;
-
     }
 
 }

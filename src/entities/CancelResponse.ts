@@ -1,7 +1,7 @@
 export interface ICancelResponse {
 
-    referenceId:string;
-    cancellationId:string;
+    referenceId?:string;
+    cancellationId?:string;
     message?:string;
     errors?:any[];
 
@@ -10,8 +10,8 @@ export interface ICancelResponse {
 
 export default class CancelResponse {
 
-    referenceId:string;
-    cancellationId:string;
+    referenceId?:string;
+    cancellationId?:string;
     message?:string;
     errors?:any[];
 
