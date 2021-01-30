@@ -1,13 +1,13 @@
-import { useState, useCallback } from 'react';
+import React,{ useState, useCallback } from 'react';
 
 import Api, { ApiType } from '../services/api';
 
 
-const useHttpClient = ({ xPicpayToken, xSellerToken, baseUrl }: ApiType) => {
-
-    const [isLoading, setIsLoading] = useState(false);
+export const HttpClient = ({ xPicpayToken, xSellerToken, baseUrl }: ApiType) => {
 
     let axios = new Api({ xPicpayToken, xSellerToken, baseUrl });
+
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     
     const sendRequest = useCallback(
         async (url,method='GET',body=null)=>{
@@ -24,7 +24,5 @@ const useHttpClient = ({ xPicpayToken, xSellerToken, baseUrl }: ApiType) => {
 
     return { isLoading, sendRequest};
 
-
 }
 
-export default useHttpClient;

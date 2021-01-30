@@ -1,35 +1,62 @@
-import useHttpClient from '../hooks/HttpHook';
-import {ApiType} from '../services/api';
-import {AxiosResponse} from 'axios';
+import { AxiosResponse } from 'axios';
+import Api, { ApiType } from '../services/api';
 
-import  PaymentRequest,{IPaymentRequest} from '../entities/PaymentRequest';
-import  PaymentResponse,{IPaymentResponse} from '../entities/PaymentResponse';
+import PaymentRequest, { IPaymentRequest } from '../entities/PaymentRequest';
+import PaymentResponse, { IPaymentResponse } from '../entities/PaymentResponse';
 
-class PicpayPayment{
+class PicpayPayment {
 
-    public isLoading:boolean
-    public sendRequest:(url: any, method?: any, body?: any) => Promise<AxiosResponse<any>>;
+    baseUrl: string;
+    xPicpayToken: string;
+    xSellerToken: string;
+    loading: boolean
+    axios: Api;
 
-    constructor({xPicpayToken,xSellerToken,baseUrl}:ApiType){
+    constructor({ xPicpayToken, xSellerToken, baseUrl }: ApiType) {
 
-        const { isLoading, sendRequest } = useHttpClient({xPicpayToken,xSellerToken,baseUrl});
-
-        this.isLoading = isLoading;
-        this.sendRequest = sendRequest;
+        this.baseUrl = baseUrl;
+        this.xPicpayToken = xPicpayToken;
+        this.xSellerToken = xSellerToken;
+        this.loading = false;
+        this.axios = new Api({ xPicpayToken, xSellerToken, baseUrl });
 
     }
 
-    async sendPaymentRequest(body:IPaymentRequest):Promise<IPaymentResponse>{
+    async sendRequest(url: string, method = 'GET', body: object) {
 
-        try{
+        let response: IPaymentResponse;
+        this.loading = true;
+        const axiosService = this.axios.getAxiosService();
 
-            let response = await this.sendRequest(`/payments`,'POST',new PaymentRequest(body));
-            return new PaymentResponse(response.data);
+        switch (method) {
+            case 'GET':
+                response = await axiosService.get(url)
+                break;
+            case 'POST':
+                response = await axiosService.post(url, body)
+                break;
+            default:
+                throw new Error("Inexistent method");
+        }
 
-        }catch(err){
+        this.loading = false;
         
+        return response;
+
+
+    }
+
+    async sendPaymentRequest(body: IPaymentRequest): Promise<IPaymentResponse> {
+
+        try {
+
+            let response = await this.sendRequest(`/payments`, 'POST', new PaymentRequest(body));
+            return new PaymentResponse(response);
+
+        } catch (err) {
+
             return new PaymentResponse(err.response.data);
-        
+
         }
 
     }

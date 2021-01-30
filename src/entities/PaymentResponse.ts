@@ -6,10 +6,9 @@ export interface IQrcode {
 }
 
 export interface IPaymentResponse {
-
     referenceId?: string;
     paymentUrl?: string;
-    expiresAt?: Date,
+    expiresAt?: string,
     qrcode?: IQrcode;
     message?: string;
     errors?: any[]
@@ -20,7 +19,7 @@ export default class PaymentResponse {
 
     referenceId?: string;
     paymentUrl?: string;
-    expiresAt?: Date;
+    expiresAt?: string;
     qrcode?: IQrcode;
     message?: string;
     errors?: any[]
