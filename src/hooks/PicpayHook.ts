@@ -20,7 +20,6 @@ interface PickpayHook{
     cancelRequest:(body:ICancelRequest)=>Promise<ICancelResponse | undefined>,
     statusRequest:(referenceId:string)=>Promise<IStatusResponse | undefined>,
     notificationRequest:(body:INotificationRequest)=>Promise<string| undefined> 
-
 }
 
 export const usePickpayHook= ({ xPicpayToken, xSellerToken, baseUrl }: ApiType):PickpayHook  => {
