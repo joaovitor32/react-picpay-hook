@@ -6,33 +6,10 @@ export interface IQrcode {
 }
 
 export interface IPaymentResponse {
-    referenceId?: string;
-    paymentUrl?: string;
-    expiresAt?: string,
-    qrcode?: IQrcode;
-    message?: string;
-    errors?: any[]
+    referenceId: string;
+    paymentUrl: string;
+    expiresAt: string,
+    qrcode: IQrcode;
 
 }
 
-export default class PaymentResponse {
-
-    referenceId?: string;
-    paymentUrl?: string;
-    expiresAt?: string;
-    qrcode?: IQrcode;
-    message?: string;
-    errors?: any[]
-
-    constructor({ referenceId, paymentUrl, expiresAt, qrcode, message, errors }: IPaymentResponse) {
-
-        this.referenceId = referenceId;
-        this.paymentUrl = paymentUrl;
-        this.expiresAt = expiresAt;
-        this.qrcode = qrcode;
-        this.message = message;
-        this.errors = errors;
-
-    }
-
-}

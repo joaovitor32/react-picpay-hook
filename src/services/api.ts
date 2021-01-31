@@ -40,7 +40,6 @@ class Api{
                 'x-picpay-seller': this.xSellerToken,
             }
 
-
         })
 
     }
