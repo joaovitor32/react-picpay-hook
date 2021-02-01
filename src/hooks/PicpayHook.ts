@@ -125,7 +125,6 @@ export const usePickpayHook= ({ xPicpayToken, xSellerToken, baseUrl }: ApiType):
 
   return { isLoading, 
     error,
-    clearError, 
     cancelAnyRequest, 
     paymentRequest, 
     cancelRequest,
