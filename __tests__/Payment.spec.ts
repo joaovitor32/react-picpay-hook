@@ -53,7 +53,6 @@ describe('Class Payment', () => {
 
         });
 
-
         expect(result.current.error).toBeUndefined();
         expect(result.current.isLoading).toBeTruthy();
         await waitForNextUpdate()

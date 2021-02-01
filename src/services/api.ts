@@ -37,7 +37,7 @@ class Api{
                 'accept-encoding': 'gzip,deflate',
                 'Content-Type': 'application/json',
                 'x-picpay-token': this.xPicpayToken,
-                'x-picpay-seller': this.xSellerToken,
+                'x-seller-token': this.xSellerToken,
             }
 
         })

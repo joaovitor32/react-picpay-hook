@@ -102,16 +102,16 @@ export const usePickpayHook= ({ xPicpayToken, xSellerToken, baseUrl }: ApiType):
     setIsLoading(true);
 
     try {
+      
       clearError();
-
       const { data } = await axiosService.post('/callback', body, { cancelToken: source.token });
       setIsLoading(false);
       return data;
 
     } catch ( err ) {
 
-      setIsLoading(false);
       const { data } = err.response;
+      setIsLoading(false);
       setError(data.message);
 
     }
