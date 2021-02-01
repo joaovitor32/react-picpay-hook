@@ -38,3 +38,25 @@ const Component: React.FC<ComponentsProps> = ({baseUrl,xPicpayToken,xSellerToken
 
 export default Component;
 ```
+## Properties
+
+| Prop | Description                                                                                                                                                                                                                                                                                                           Default        |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
+| **`baseUrl`**               | string related to Picpay Api
+| **`xPicpayToken`**               | Picpay token 
+| **`xSellerToken`**               | Seller token
+
+## Hook functionalities
+
+| Functionalitie | Description                                                                                                                                                                                                                                                                                                           Default        |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
+| **`isLoading`**               | property that tells if request was already done
+| **`error`**               | property that tells any request failed
+| **`cancelAnyRequest`**               | functions that aborts any request
+| **`paymentRequest`**               | requisition for payment of an order through PicPay
+| **`cancelRequest`**               |  Use this address to request cancellation / reversal of an order
+| **`statusRequest`**               |  Use the endpoint below to check the status of a transaction.
+| **`notificationRequest`**               |  notification sent to the store
+
+
+
