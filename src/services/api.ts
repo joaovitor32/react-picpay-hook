@@ -1,6 +1,6 @@
 import axios, {AxiosInstance} from 'axios';
 
-export interface ApiType{
+export type ApiType = {
 
     xPicpayToken:string;
     xSellerToken:string;

@@ -6,7 +6,7 @@ export interface IPaymentRequest {
     callbackUrl: string;
     returnUrl: string;
     value: number;
-    expiresAt: Date;
+    expiresAt: string;
     buyer: IBuyer;
 
 }

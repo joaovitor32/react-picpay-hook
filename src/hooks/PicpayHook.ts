@@ -11,7 +11,7 @@ import { IStatusResponse } from '../entities/StatusResponse';
 import { INotificationRequest } from '../entities/NotificationRequest';
 import { ICancelRequest } from '../entities/CancelRequest';
 
-interface PickpayHook{
+export type PickpayHook={
     isLoading:boolean; 
     error:IResponseError|undefined,
     clearError:()=>void, 
@@ -52,7 +52,7 @@ export const usePickpayHook= ({ xPicpayToken, xSellerToken, baseUrl }: ApiType):
 
       setIsLoading(false);
       const { data } = err.response;
-      setError(data);
+      setError(data.message);
 
     }
 
@@ -72,7 +72,7 @@ export const usePickpayHook= ({ xPicpayToken, xSellerToken, baseUrl }: ApiType):
 
       setIsLoading(false);
       const { data } = err.response;
-      setError(data);
+      setError(data.message);
 
     }
 
@@ -92,7 +92,7 @@ export const usePickpayHook= ({ xPicpayToken, xSellerToken, baseUrl }: ApiType):
 
       setIsLoading(false);
       const { data } = err.response;
-      setError(data);
+      setError(data.message);
 
     }
 
@@ -113,7 +113,7 @@ export const usePickpayHook= ({ xPicpayToken, xSellerToken, baseUrl }: ApiType):
 
       setIsLoading(false);
       const { data } = err.response;
-      setError(data);
+      setError(data.message);
 
     }
 
