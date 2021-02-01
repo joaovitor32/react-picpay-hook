@@ -14,7 +14,6 @@ import { ICancelRequest } from '../entities/CancelRequest';
 export type PickpayHook={
     isLoading:boolean; 
     error:IResponseError|undefined,
-    clearError:()=>void, 
     cancelAnyRequest:()=>void, 
     paymentRequest:(body:IPaymentRequest)=>Promise<IPaymentResponse | undefined>, 
     cancelRequest:(body:ICancelRequest)=>Promise<ICancelResponse | undefined>,
@@ -102,7 +101,7 @@ export const usePickpayHook= ({ xPicpayToken, xSellerToken, baseUrl }: ApiType):
     setIsLoading(true);
 
     try {
-      
+
       clearError();
       const { data } = await axiosService.post('/callback', body, { cancelToken: source.token });
       setIsLoading(false);
