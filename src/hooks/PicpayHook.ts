@@ -40,16 +40,16 @@ export const usePickpayHook= ({ xPicpayToken, xSellerToken, baseUrl }: ApiType):
     setIsLoading(true);
 
     try {
+      
       clearError();
-
       const { data } = await axiosService.post('/payments', body, { cancelToken: source.token });
       setIsLoading(false);
       return data;
 
     } catch ( err ) {
 
-      setIsLoading(false);
       const { data } = err.response;
+      setIsLoading(false);
       setError(data.message);
 
     }
@@ -62,14 +62,15 @@ export const usePickpayHook= ({ xPicpayToken, xSellerToken, baseUrl }: ApiType):
 
     try {
 
+      clearError();
       const { data } = await axiosService.post(`/payments/${body.referenceId}/cancellations`, body, { cancelToken: source.token });
       setIsLoading(false);
       return data;
 
     } catch ( err ) {
 
-      setIsLoading(false);
       const { data } = err.response;
+      setIsLoading(false);
       setError(data.message);
 
     }
@@ -82,14 +83,15 @@ export const usePickpayHook= ({ xPicpayToken, xSellerToken, baseUrl }: ApiType):
 
     try {
 
+      clearError();
       const { data } = await axiosService.get(`/payments/${referenceId}/status`, { cancelToken: source.token });
       setIsLoading(false);
       return data;
 
     } catch ( err ) {
 
-      setIsLoading(false);
       const { data } = err.response;
+      setIsLoading(false);
       setError(data.message);
 
     }
